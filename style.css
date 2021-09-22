@@ -19,5 +19,47 @@ body {
 }
 
 .tracker-header{
+  font-size: 5rem;
+}
+
+.balance{
   font-size: 4rem;
+}
+
+#tracker-main{
+  display: flex;
+  flex: row;
+  font-size: 3rem;
+  justify-content: space-around;
+}
+
+.add-form{
+display: flex;
+flex-direction: row;
+justify-content: center;
+margin:30rem;
+}
+
+.income{
+  width: 30%;
+}
+
+.income-history{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2rem;
+}
+
+.expense{
+  width: 30%;
+}
+
+.expense-history{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2rem;
 }

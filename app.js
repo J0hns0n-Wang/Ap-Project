@@ -1,6 +1,4 @@
 console.log("connected")
 
-console.log("#F9875B")
-
-
-console.log("#286589")
+const balance = document.querySelector(".balance")
+const incomeAmount = document.querySelector(".income-header")
