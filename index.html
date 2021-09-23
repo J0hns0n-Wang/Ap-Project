@@ -9,17 +9,17 @@
 </head>
 
 <body>
-    <section id="Tracker">
+    <section id="tracker">
         <div id="header">
             <h1 class="tracker-header">Budget Tracker</h1>
             <p class="balance">Balance: </p>
         </div>
         <div id="tracker-main">
             <div class="income">
-                <div class="icnome-header">Income:</div>
+                <div class="income-header">Income:</div>
                 <div class="income-history">
                     <div class="income-date">9/22/2021</div>
-                    <div class="name">Name</div>
+                    <div class="income-name">Name</div>
                     <div class="income-amount">+1000</div>
                     <button type="button" class="del-button">Delete</button>
                 </div>
@@ -28,17 +28,17 @@
             <div class="expense">
                 <div class="expense-header">Expense:</div>
                 <div class="expense-history">
-                    <div class="date">9/22/2021</div>
-                    <div class="name">Name</div>
-                    <div class="income-amount">-1000</div>
+                    <div class="expense-date">9/22/2021</div>
+                    <div class="expense-name">Name</div>
+                    <div class="expense-amount">-1000</div>
                     <button type="button" class="del-button">Delete</button>
                 </div>
 
             </div>
         </div>
         <form id="add-form" class="add-form">
-            <input type="text" name="add-form-area" id="add-form-area" placeholder="Enter Amount"></input>
-            <button type="button" class="button">Add</button>
+            <input type="text" name="add-form-area" class="add-form-area" placeholder="Enter Amount"></input>
+            <button type="button" class="add-button">Add</button>
         </form>
     </section>
     <script src="./app.js"></script>
