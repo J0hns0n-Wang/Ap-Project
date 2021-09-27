@@ -41,6 +41,10 @@ margin:30rem;
 
 .income{
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .income-history{
@@ -50,6 +54,7 @@ margin:30rem;
   justify-content: space-around;
   font-size: 2rem;
 }
+
 
 .expense{
   width: 30%;

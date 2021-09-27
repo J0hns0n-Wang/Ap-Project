@@ -13,8 +13,8 @@ const addName = document.querySelector(".add-name-area")
 
 console.log(addName)
 
-let incomeHistoryarr = []
-let expenseHistoryarr = []
+let incomeHistoryArr = []
+let expenseHistoryArr = []
 let balanceNumber = 0
 let totalIncomeNumber = 0
 let totalExpenseNumber = 0
@@ -47,13 +47,13 @@ addBtn.addEventListener('click', (e) => {
         amount:`${addValueParam}`
         
     }
-    if(addValueParam !=  Number){
-        alert("hi")
-    }
+    // if(addValueParam !=  Number){
+    //     alert("hi")
+    // }
     if(addValueParam < 0){
-        expenseHistoryarr.push(expense)
+        expenseHistoryArr.push(expense)
     }else{
-        incomeHistoryarr.push(income)
+        incomeHistoryArr.push(income)
     }
     // switch('hi'){
     //     case addValueParam != Number:
@@ -67,6 +67,31 @@ addBtn.addEventListener('click', (e) => {
     // }
 console.log(addNameParam)
 console.log(addValueParam)
-console.log(incomeHistoryarr)
-console.log(expenseHistoryarr)
+console.log(incomeHistoryArr)
+console.log(expenseHistoryArr)
+incomeHistoryArr.forEach((income) => {
+    incomeHistory.insertAdjacentHTML(
+      "beforeend",
+      `<div class="income-date">${income.date}</div>
+      <div class="income-name">${income.name}</div>
+      <div class="income-amount">${income.amount}</div>
+      <button type="button" class="del-button">Delete</button> `
+    );
+  });
+  expenseHistoryArr.forEach((expense) => {
+    expenseHistory.insertAdjacentHTML(
+      "beforeend",
+      `<div class="income-date">${expense.date}</div>
+      <div class="income-name">${expense.name}</div>
+      <div class="income-amount">${expense.amount}</div>
+      <button type="button" class="del-button">Delete</button> `
+    );
+  });
+ 
+  let newIncome = addValueParam
+  totalIncome.innerHTML = `$${newIncome}`
+  let newBalance = balanceNumber + newIncome
+  balance.innerHTML = `$${newBalance}`
+
 })
+
