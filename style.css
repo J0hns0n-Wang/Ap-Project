@@ -27,9 +27,11 @@ body {
 
 #tracker-main{
   display: flex;
-  flex: row;
+  flex-direction: row;
   font-size: 3rem;
   justify-content: space-around;
+
+  
 }
 
 .add-form{
@@ -40,25 +42,39 @@ margin:30rem;
 }
 
 .income{
-  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
+
 }
+
+/* .income-column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
 
 .income-history{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
   font-size: 2rem;
+  width: 100%;
 }
 
+.income-history-inner{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: red;
+}
 
+/* 
 .expense{
-  width: 30%;
-}
+  
+} */
 
 .expense-history{
   display: flex;

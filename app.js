@@ -14,6 +14,7 @@ const addName = document.querySelector(".add-name-area");
 console.log(addName);
 
 let incomeHistoryArr = [];
+let incomeAmountArr = []
 let expenseHistoryArr = [];
 let balanceNumber = 0;
 let totalIncomeNumber = 0;
@@ -51,8 +52,10 @@ addBtn.addEventListener("click", (e) => {
   if (addValueParam < 0) {
     expenseHistoryArr.push(expense);
   }
+
   if (addValueParam > 0) {
     incomeHistoryArr.push(income);
+    incomeAmountArr.push(income.amount)
   }
   // if (addValueParam != Number){
   //   break;
@@ -62,6 +65,7 @@ addBtn.addEventListener("click", (e) => {
   console.log(addValueParam);
   console.log(incomeHistoryArr);
   console.log(expenseHistoryArr);
+  console.log(incomeAmountArr)
   incomeHistoryArr.forEach((income) => {
     incomeHistory.insertAdjacentHTML(
       "beforeend",
@@ -81,7 +85,6 @@ addBtn.addEventListener("click", (e) => {
     );
   });
 
-  totalIncome.innerHTML = `$${newIncome}`;
-  let newBalance = balanceNumber + newIncome;
-  balance.innerHTML = `$${newBalance}`;
+
+
 });
