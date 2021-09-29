@@ -21,8 +21,8 @@ let totalIncomeNumber = 0;
 let totalExpenseNumber = 0;
 
 balance.innerHTML = `Balance: $${balanceNumber}`;
-totalIncome.innerHTML = `Balance: $${totalIncomeNumber}`;
-totalExpense.innerHTML = `Balance: $${totalExpenseNumber}`;
+totalIncome.innerHTML = `Income: $${totalIncomeNumber}`;
+totalExpense.innerHTML = `Expense: $${totalExpenseNumber}`;
 
 let date = new Date();
 let month = date.getMonth() + 1; //.getMonth returns number from 0 to 11
@@ -36,36 +36,31 @@ addBtn.addEventListener("click", (e) => {
   let incomeHistoryArr = [];
   const addNameParam = addName.value;
   const addValueParam = addArea.value;
-  let income = {
+  const income = {
     date: `${dateNow}`,
     name: `${addNameParam}`,
     amount: `${addValueParam}`,
   };
-  let expense = {
+  const expense = {
     date: `${dateNow}`,
     name: `${addNameParam}`,
     amount: `${addValueParam}`,
   };
-  // if(addValueParam !=  Number){
-  //     alert("hi")
-  // }
+
   if (addValueParam < 0) {
     expenseHistoryArr.push(expense);
   }
-
+  const obj = JSON.parse(income.amount);
+console.log(income.amount)
   if (addValueParam > 0) {
     incomeHistoryArr.push(income);
-    incomeAmountArr.push(income.amount)
+    incomeAmountArr.push(obj)
   }
-  // if (addValueParam != Number){
-  //   break;
-  // }
-
+ 
+  console.log(incomeAmountArr)
   console.log(addNameParam);
-  console.log(addValueParam);
   console.log(incomeHistoryArr);
   console.log(expenseHistoryArr);
-  console.log(incomeAmountArr)
   incomeHistoryArr.forEach((income) => {
     incomeHistory.insertAdjacentHTML(
       "beforeend",
@@ -84,6 +79,14 @@ addBtn.addEventListener("click", (e) => {
       <button type="button" class="del-button">Delete</button> `
     );
   });
+
+  const reducer = (previousValue, currentValue) => previousValue + currentValue;
+  let incomeBudget = incomeAmountArr.reduce(reducer)
+  totalIncome.innerHTML = `Income: $${incomeBudget}`
+  console.log(incomeAmountArr.reduce(reducer))
+
+let balanceAmount = incomeBudget + 0//change to expense later
+balance.innerHTML = `Balance: $${balanceAmount}`
 
 
 
