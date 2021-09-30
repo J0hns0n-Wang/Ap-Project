@@ -14,7 +14,7 @@ const addName = document.querySelector(".add-name-area");
 console.log(addName);
 
 let incomeHistoryArr = [];
-let incomeAmountArr = []
+let incomeAmountArr = [];
 let expenseHistoryArr = [];
 let balanceNumber = 0;
 let totalIncomeNumber = 0;
@@ -51,43 +51,43 @@ addBtn.addEventListener("click", (e) => {
     expenseHistoryArr.push(expense);
   }
   const obj = JSON.parse(income.amount);
-console.log(income.amount)
+  console.log(income.amount);
   if (addValueParam > 0) {
     incomeHistoryArr.push(income);
-    incomeAmountArr.push(obj)
+    incomeAmountArr.push(obj);
   }
- 
-  console.log(incomeAmountArr)
+
+  console.log(incomeAmountArr);
   console.log(addNameParam);
   console.log(incomeHistoryArr);
   console.log(expenseHistoryArr);
   incomeHistoryArr.forEach((income) => {
     incomeHistory.insertAdjacentHTML(
       "beforeend",
-      `<div class="income-date">${income.date}</div>
-      <div class="income-name">${income.name}</div>
-      <div class="income-amount">${income.amount}</div>
-      <button type="button" class="del-button">Delete</button> `
+      ` <div class="income-container">
+      <div class="income-list">${income.date}</div>
+      <div class="income-list">${income.name}</div>
+      <div class="income-list">${income.amount}</div>
+      <button type="button" class="del-button">Delete</button>
+      </div> `
     );
   });
   expenseHistoryArr.forEach((expense) => {
     expenseHistory.insertAdjacentHTML(
       "beforeend",
-      `<div class="income-date">${expense.date}</div>
-      <div class="income-name">${expense.name}</div>
-      <div class="income-amount">${expense.amount}</div>
+      `
+      <div class="expense-list">${expense.date}</div>
+      <div class="expense-list">${expense.name}</div>
+      <div class="expense-list">${expense.amount}</div>
       <button type="button" class="del-button">Delete</button> `
     );
   });
 
   const reducer = (previousValue, currentValue) => previousValue + currentValue;
-  let incomeBudget = incomeAmountArr.reduce(reducer)
-  totalIncome.innerHTML = `Income: $${incomeBudget}`
-  console.log(incomeAmountArr.reduce(reducer))
+  let incomeBudget = incomeAmountArr.reduce(reducer);
+  totalIncome.innerHTML = `Income: $${incomeBudget}`;
+  console.log(incomeAmountArr.reduce(reducer));
 
-let balanceAmount = incomeBudget + 0//change to expense later
-balance.innerHTML = `Balance: $${balanceAmount}`
-
-
-
+  let balanceAmount = incomeBudget + 0; //change to expense later
+  balance.innerHTML = `Balance: $${balanceAmount}`;
 });

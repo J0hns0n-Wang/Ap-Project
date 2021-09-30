@@ -6,72 +6,66 @@ body {
   font-size: 62.5%;
 }
 
-#tracker{
-   height: 100vh;
+#tracker {
+  height: 100vh;
 }
 
-#header{
+#header {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-weight: bold;
 }
 
-.tracker-header{
+.tracker-header {
   font-size: 5rem;
 }
 
-.balance{
+.balance {
   font-size: 4rem;
 }
 
-#tracker-main{
+#tracker-main {
   display: flex;
-  flex-direction: row;
   font-size: 3rem;
   justify-content: space-around;
-
-  
 }
 
-.add-form{
-display: flex;
-flex-direction: row;
-justify-content: center;
-margin:30rem;
-}
-
-.income{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-
-}
-
-/* .income-column{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
-
-.income-history{
+.add-form {
   display: flex;
   flex-direction: row;
- 
-  justify-content: space-around;
-  font-size: 2rem;
-  width: 300%;
-
+  justify-content: center;
+  margin-bottom: 10rem;
 }
 
+.income {
+  display: flex;
+  flex-direction: column;
+}
+
+.income-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+.income-history {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 2rem;
+  width: 300%;
+  padding: 1rem;
+  margin-bottom: 4rem;
+}
 
 /* 
 .expense{
   
 } */
 
-.expense-history{
+.expense-history {
   display: flex;
   flex-direction: row;
   align-items: center;
