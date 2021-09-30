@@ -14,7 +14,8 @@ const addName = document.querySelector(".add-name-area");
 console.log(addName);
 
 let incomeHistoryArr = [];
-let incomeAmountArr = [];
+let incomeAmountArr = []
+let expenseAmountArr = []
 let expenseHistoryArr = [];
 let balanceNumber = 0;
 let totalIncomeNumber = 0;
@@ -34,6 +35,7 @@ console.log(dateNow);
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let incomeHistoryArr = [];
+  let expenseHistoryArr = [];
   const addNameParam = addName.value;
   const addValueParam = addArea.value;
   const income = {
@@ -46,25 +48,33 @@ addBtn.addEventListener("click", (e) => {
     name: `${addNameParam}`,
     amount: `${addValueParam}`,
   };
-
+  const obj1 = JSON.parse(expense.amount);
   if (addValueParam < 0) {
     expenseHistoryArr.push(expense);
+    expenseAmountArr.push(obj1)
+
   }
   const obj = JSON.parse(income.amount);
-  console.log(income.amount);
+console.log(income.amount)
   if (addValueParam > 0) {
     incomeHistoryArr.push(income);
-    incomeAmountArr.push(obj);
+    incomeAmountArr.push(obj)
+    const reducer = (previousValue, currentValue) => previousValue + currentValue;
+    let incomeBudget = incomeAmountArr.reduce(reducer)
+    totalIncome.innerHTML = `Income: $${incomeBudget}`
+    console.log(incomeAmountArr.reduce(reducer))
   }
-
-  console.log(incomeAmountArr);
+ 
+  console.log(incomeAmountArr)
+  
+  console.log(expenseAmountArr)
   console.log(addNameParam);
   console.log(incomeHistoryArr);
   console.log(expenseHistoryArr);
   incomeHistoryArr.forEach((income) => {
     incomeHistory.insertAdjacentHTML(
       "beforeend",
-      ` <div class="income-container">
+      `<div class="income-container">
       <div class="income-list">${income.date}</div>
       <div class="income-list">${income.name}</div>
       <div class="income-list">${income.amount}</div>
@@ -75,19 +85,31 @@ addBtn.addEventListener("click", (e) => {
   expenseHistoryArr.forEach((expense) => {
     expenseHistory.insertAdjacentHTML(
       "beforeend",
-      `
+      `<div class="expense-container">
       <div class="expense-list">${expense.date}</div>
       <div class="expense-list">${expense.name}</div>
       <div class="expense-list">${expense.amount}</div>
-      <button type="button" class="del-button">Delete</button> `
+      <button type="button" class="del-button">Delete</button>
+      </div> `
     );
   });
 
   const reducer = (previousValue, currentValue) => previousValue + currentValue;
-  let incomeBudget = incomeAmountArr.reduce(reducer);
-  totalIncome.innerHTML = `Income: $${incomeBudget}`;
-  console.log(incomeAmountArr.reduce(reducer));
+  let incomeBudget = incomeAmountArr.reduce(reducer)
+  totalIncome.innerHTML = `Income: $${incomeBudget}`
+  console.log(incomeAmountArr.reduce(reducer))
 
-  let balanceAmount = incomeBudget + 0; //change to expense later
-  balance.innerHTML = `Balance: $${balanceAmount}`;
+  const reducer2 = (previousValue, currentValue) => previousValue + currentValue;
+  let expenseBudget = expenseAmountArr.reduce(reducer2)
+  totalIncome.innerHTML = `Income: $${expenseBudget}`
+  console.log(expenseAmountArr.reduce(reducer2))
+
+
+
+
+  let balanceAmount = incomeBudget + 0
+  balance.innerHTML = `Balance: $${balanceAmount}`
+
+
+
 });
