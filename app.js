@@ -5,13 +5,13 @@ const totalIncome = document.querySelector(".income-header");
 const incomeHistory = document.querySelector(".income-history");
 const totalExpense = document.querySelector(".expense-header");
 const expenseHistory = document.querySelector(".expense-history");
-const delBtn = document.querySelector(".del-button");
+const delBtn = document.getElementById("del-button")
 const addBtn = document.querySelector(".add-button");
 const addForm = document.querySelector(".add-form");
 const addArea = document.querySelector(".add-form-area");
 const addName = document.querySelector(".add-name-area");
 
-console.log(addName);
+console.log(delBtn);
 
 let incomeHistoryArr = [];
 let incomeAmountArr = [0];
@@ -73,7 +73,7 @@ addBtn.addEventListener("click", (e) => {
       <div class="income-list">${income.date}</div>
       <div class="income-list">${income.name}</div>
       <div class="income-list">${income.amount}</div>
-      <button type="button" class="del-button">Delete</button>
+      <button type="button" id="del-button">Delete</button>
       </div> `
     );
   });
@@ -84,7 +84,7 @@ addBtn.addEventListener("click", (e) => {
       <div class="expense-list">${expense.date}</div>
       <div class="expense-list">${expense.name}</div>
       <div class="expense-list">${expense.amount}</div>
-      <button type="button" class="del-button">Delete</button>
+      <button type="button" id="del-button">Delete</button>
       </div> `
     );
   });
@@ -98,4 +98,14 @@ addBtn.addEventListener("click", (e) => {
   let incomeBudget = incomeAmountArr.reduce(reducer);
   totalIncome.innerHTML = `Income: $${incomeBudget}`;
   console.log(incomeAmountArr.reduce(reducer));
+
+  let balanceNumber = expenseBudget + incomeBudget
+  balance.innerHTML = `Balance: $${balanceNumber}`
 });
+
+delBtn.addEventListener('click', (e) => {
+  e.preventDefault()
+  let parentElement = e.parentNode
+  console.log(parentElement)
+}
+)
