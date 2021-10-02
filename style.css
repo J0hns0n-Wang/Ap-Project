@@ -55,7 +55,7 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 2rem;
-  width: 300%;
+  width: 250%;
   padding: 1rem;
   margin-bottom: 4rem;
 }
@@ -77,11 +77,26 @@ body {
   flex-direction: column;
   justify-content: space-between;
   font-size: 2rem;
-  width: 300%;
+  width: 250%;
   padding: 1rem;
-  margin-bottom: 4rem;
 }
 
-/* .hidden{
+.hidden {
   display: none;
-} */
+}
+
+.note {
+  font-size: 2rem;
+}
+
+.error {
+  font-size: 1.5rem;
+  color: rgb(246, 64, 64);
+}
+
+.income-amount {
+  color: green;
+}
+.expense-amount {
+  color: rgb(246, 64, 64);
+}
