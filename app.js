@@ -5,7 +5,7 @@ const totalIncome = document.querySelector(".income-header");
 const incomeHistory = document.querySelector(".income-history");
 const totalExpense = document.querySelector(".expense-header");
 const expenseHistory = document.querySelector(".expense-history");
-const delBtn = document.getElementById("del-button")
+const delBtn = document.getElementById("del-button");
 const addBtn = document.querySelector(".add-button");
 const addForm = document.querySelector(".add-form");
 const addArea = document.querySelector(".add-form-area");
@@ -73,7 +73,7 @@ addBtn.addEventListener("click", (e) => {
       <div class="income-list">${income.date}</div>
       <div class="income-list">${income.name}</div>
       <div class="income-list">${income.amount}</div>
-      <button type="button" id="del-button">Delete</button>
+      <button type="button" class="del-button">Delete</button>
       </div> `
     );
   });
@@ -84,7 +84,7 @@ addBtn.addEventListener("click", (e) => {
       <div class="expense-list">${expense.date}</div>
       <div class="expense-list">${expense.name}</div>
       <div class="expense-list">${expense.amount}</div>
-      <button type="button" id="del-button">Delete</button>
+      <button type="button" class="del-button">Delete</button>
       </div> `
     );
   });
@@ -99,13 +99,19 @@ addBtn.addEventListener("click", (e) => {
   totalIncome.innerHTML = `Income: $${incomeBudget}`;
   console.log(incomeAmountArr.reduce(reducer));
 
-  let balanceNumber = expenseBudget + incomeBudget
-  balance.innerHTML = `Balance: $${balanceNumber}`
+  let balanceNumber = expenseBudget + incomeBudget;
+  balance.innerHTML = `Balance: $${balanceNumber}`;
 });
 
-delBtn.addEventListener('click', (e) => {
-  e.preventDefault()
-  let parentElement = e.parentNode
-  console.log(parentElement)
-}
-)
+incomeHistory.addEventListener("click", (e) => {
+  if (e.target.className == "del-button") {
+    const parentElement = e.target.parentElement;
+    incomeHistory.removeChild(parentElement);
+  }
+});
+expenseHistory.addEventListener("click", (e) => {
+  if (e.target.className == "del-button") {
+    const parentElement = e.target.parentElement;
+    expenseHistory.removeChild(parentElement);
+  }
+});
