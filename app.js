@@ -9,7 +9,9 @@ const addBtn = document.querySelector(".add-button");
 const addForm = document.querySelector(".add-form");
 const addArea = document.querySelector(".add-form-area");
 const addName = document.querySelector(".add-name-area");
-const error = document.querySelector(".error");
+const onlyNumber = document.querySelector(".only-number");
+const inputName = document.querySelector(".input-name");
+const inputNumber = document.querySelector(".input-number");
 const resetBtn = document.querySelector(".reset-button");
 
 console.log(resetBtn);
@@ -50,25 +52,39 @@ addBtn.addEventListener("click", (e) => {
     amount: `${addValueParam}`,
   };
   if (addValueParam != Number) {
-    error.style.display = "flex";
+    onlyNumber.style.display = "flex";
+  }
+  if (addNameParam === "") {
+    inputName.style.display = "flex";
+    onlyNumber.style.display = "none";
+  } else {
+    inputName.style.display = "none";
+  }
+  if (addValueParam === "") {
+    inputNumber.style.display = "flex";
+    onlyNumber.style.display = "none";
+  } else {
+    inputNumber.style.display = "none";
   }
 
   function addExpense() {
-    const obj1 = JSON.parse(expense.amount);
     if (addValueParam < 0) {
+      const obj1 = JSON.parse(expense.amount);
       expenseHistoryArr.push(expense);
       expenseAmountArr.push(obj1);
-      error.style.display = "none";
+      onlyNumber.style.display = "none";
+      inputNumber.style.display = "none";
     }
   }
   addExpense();
   function addIncome() {
-    const obj = JSON.parse(income.amount);
     console.log(income.amount);
     if (addValueParam > 0) {
+      const obj = JSON.parse(income.amount);
       incomeHistoryArr.push(income);
       incomeAmountArr.push(obj);
-      error.style.display = "none";
+      onlyNumber.style.display = "none";
+      inputNumber.style.display = "none";
     }
   }
   addIncome();

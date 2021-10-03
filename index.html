@@ -14,7 +14,15 @@
             <h1 class="tracker-header">Budget Tracker</h1>
             <p class="balance">Balance: </p>
             <p class="note">Note: Use "-" in front of number for expense</p>
-            <p class="error hidden">Only input NUMBERS!!!!!</p>
+            <div class="error">
+                <p class="error hidden only-number">Only input NUMBERS!!!!!</p>
+                <div class="error-param">
+                    <p class="error hidden input-name">Please Input A Name!</p>
+                    <p class="error hidden input-number">Please Input A Number!</p>
+                </div>
+                
+            </div>
+            
         </div>
         <form id="add-form" class="add-form">
             <input type="text" name="add-name-area" class="add-name-area" placeholder="Enter Name"></input>

@@ -92,6 +92,7 @@ body {
 .error {
   font-size: 1.5rem;
   color: rgb(246, 64, 64);
+  text-align: center;
 }
 
 .income-amount {
@@ -99,4 +100,12 @@ body {
 }
 .expense-amount {
   color: rgb(246, 64, 64);
+}
+
+.error-param {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 125%;
+  transform: translateX(-20%);
 }
