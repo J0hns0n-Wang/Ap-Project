@@ -60,12 +60,6 @@ addBtn.addEventListener("click", (e) => {
   } else {
     inputName.style.display = "none";
   }
-  if (addValueParam === "") {
-    inputNumber.style.display = "flex";
-    onlyNumber.style.display = "none";
-  } else {
-    inputNumber.style.display = "none";
-  }
 
   function addExpense() {
     if (addValueParam < 0) {
@@ -114,23 +108,26 @@ addBtn.addEventListener("click", (e) => {
       </div> `
     );
   });
-  function calcBudget() {
-    const reducer2 = (previousValue, currentValue) =>
-      previousValue + currentValue;
-    let expenseBudget = expenseAmountArr.reduce(reducer2);
-    totalExpense.innerHTML = `Expense: $${expenseBudget}`;
-    console.log(expenseAmountArr.reduce(reducer2));
+  const reducer2 = (previousValue, currentValue) =>
+    previousValue + currentValue;
+  let expenseBudget = expenseAmountArr.reduce(reducer2);
+  const reducer = (previousValue, currentValue) => previousValue + currentValue;
+  let incomeBudget = incomeAmountArr.reduce(reducer);
 
-    const reducer = (previousValue, currentValue) =>
-      previousValue + currentValue;
-    let incomeBudget = incomeAmountArr.reduce(reducer);
-    totalIncome.innerHTML = `Income: $${incomeBudget}`;
-    console.log(incomeAmountArr.reduce(reducer));
-
-    let balanceNumber = expenseBudget + incomeBudget;
+  function calcBudget(expense, income) {
+    totalIncome.innerHTML = `Expense: $${income}`;
+    totalExpense.innerHTML = `Expense: $${expense}`;
+    let balanceNumber = expense + income;
     balance.innerHTML = `Balance: $${balanceNumber}`;
+
+    if (addValueParam === "") {
+      inputNumber.style.display = "flex";
+      onlyNumber.style.display = "none";
+    } else {
+      inputNumber.style.display = "none";
+    }
   }
-  calcBudget();
+  calcBudget(expenseBudget, incomeBudget);
 });
 
 resetBtn.addEventListener("click", () => {
